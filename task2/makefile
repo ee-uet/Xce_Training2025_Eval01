@@ -14,7 +14,7 @@ run: $(PROG)
 	$(SPIKE) $(PROG)
 # Rule to debug with Spike
 debug: $(PROG)
-	$(SPIKE) -d --log-commits $(PROG)
+	$(SPIKE) -d --log-commits $(PROG)>log.txt 
 # Clean up
 clean:
 	rm -f *.o $(PROG)
