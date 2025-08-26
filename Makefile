@@ -3,8 +3,8 @@ CC = gcc
 CFLAGS = -Wall -Wextra -O2
 
 # If you run "make", it will compile 'a.c' by default
-SRC ?= struct_e.c
-OUT ?= struct_e
+SRC ?= bitops.c
+OUT ?= bitops
 
 all: $(OUT)
 
