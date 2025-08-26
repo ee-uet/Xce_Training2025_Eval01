@@ -1,17 +1,28 @@
 # Bit Manipulation Utility in C
 
-This program demonstrates **bit manipulation operations** in C.  
-It provides functions for:
+This program demonstrates various **bit manipulation operations** in C.  
+It includes functions for:
 - Counting set bits
 - Reversing bits
 - Checking if a number is a power of 2
-- Setting, clearing, toggling specific bits
+- Setting, clearing, and toggling specific bits
 - Extracting a range of bits from a number
 
 ---
 
-## **How to Compile and Run in Bash**
+## **Build and Run Instructions**
 
-### **Compile**
-```bash
-gcc bit_operations.c -o bitops
+This project uses a **Makefile** for easier compilation and testing.
+
+### **Available Makefile Targets**
+
+- **`make build`**  
+  Compiles the program and generates an executable named `bitops`.
+
+- **`make test`**  
+  Runs the program with sample test cases to verify functionality.
+
+- **`make clean`**  
+  Removes all build artifacts (executable files, temporary files).
+
+---
