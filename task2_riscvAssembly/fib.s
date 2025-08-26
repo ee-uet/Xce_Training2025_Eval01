@@ -16,7 +16,7 @@ _start:
     addi t3, t3, 8         # move pointer
     sd t2, 0(t3)           # store F1
     addi t3, t3, 8         # move pointer
-    li t4, 2               # counter = 2
+    li t4, 2               # counter = 2 (already have 2 numbers)
 
 fib_loop:
     bge t4, t0, done       # if counter >= n, done
