@@ -85,7 +85,6 @@ void bitops() {
         printf("Invalid operator!\n");
     }
 }
-
 int main() {
     bitops();
     return 0;

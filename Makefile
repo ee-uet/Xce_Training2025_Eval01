@@ -1,6 +1,6 @@
 CC = gcc
 TARGET = bitops
-TEST_TARGET = bitops.sh
+TEST_TARGET = bit.sh
 
 all: build test 
 
