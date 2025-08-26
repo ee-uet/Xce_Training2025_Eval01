@@ -48,10 +48,10 @@ void bitops() {
     char op[20];
     int pos;
 
-    printf("Enter an integer: ");
+    printf("Enter an integer:\n ");
     scanf("%d", &a);
 
-    printf("Enter the operation: ");
+    printf("Enter the operation:\n ");
     scanf("%19s", op);
 
    if (strcmp(op, "countbit") == 0) {
@@ -67,17 +67,17 @@ void bitops() {
             printf("%d is not a power of 2.\n", a);
     }
     else if (strcmp(op, "set") == 0) {
-        printf("Enter bit position (0-31): ");
+        printf("Enter bit position (0-31): \n");
         scanf("%d", &pos);
         printf("After setting bit %d: %u\n", pos, setBit(a, pos));
     }
     else if (strcmp(op, "clear") == 0) {
-        printf("Enter bit position (0-31): ");
+        printf("Enter bit position (0-31): \n");
         scanf("%d", &pos);
         printf("After clearing bit %d: %u\n", pos, clearBit(a, pos));
     }
     else if (strcmp(op, "toggle") == 0) {
-        printf("Enter bit position (0-31): ");
+        printf("Enter bit position (0-31): \n");
         scanf("%d", &pos);
         printf("After toggling bit %d: %u\n", pos, toggleBit(a, pos));
     }
