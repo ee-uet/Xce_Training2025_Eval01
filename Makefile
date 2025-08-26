@@ -1,22 +1,19 @@
-# General Makefile for single C file
 CC = gcc
 CFLAGS = -Wall -Wextra -O2
 
-# If you run "make", it will compile 'a.c' by default
-SRC ?= bitops.c
-OUT ?= bitops
+SRC ?= bitops1.c
+OUT ?= bitops1
 
-all: $(OUT)
+all: build
 
 $(OUT): $(SRC)
 	@$(CC) $(CFLAGS) $(SRC) -o $(OUT)
 
 build: $(OUT)
-	@./$(OUT)
 
-test:run_test.sh
-	@chmod +x run_test.sh
-	@./run_test.sh
+test: $(OUT) run_tests.sh
+	@chmod +x run_tests.sh
+	@./run_tests.sh
 
 clean:
-	@rm -f $(OUT) 
+	@rm -f $(OUT)
