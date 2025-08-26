@@ -51,6 +51,9 @@ void bitops() {
     printf("Enter an integer: ");
     scanf("%d", &a);
 
+    printf("Enter the operation: ");
+    scanf("%19s", op);
+
    if (strcmp(op, "countbit") == 0) {
         printf("Number of set bits: %d\n", countBits(a));
     }
@@ -84,6 +87,6 @@ void bitops() {
 }
 
 int main() {
-    int a;
+    bitops();
     return 0;
 }
