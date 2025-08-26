@@ -1,140 +1,42 @@
-# Evaluation-1: Productivity Tools and C Language
+///////C code part///////
 
-Welcome to **Evaluation-1** 
-This repository contains the starter files and structure for your first evaluation.  
-You will demonstrate your understanding of **C programming, Bash scripting, Makefile, Git workflow, and RISC-V assembly (Spike)**.
+Part 1
 
----
+The function of this task counts the number of set bits (1s) in the binary representation of a number. It continuously clears the rightmost set bit of n using the operation n&=(n-1) and increments the counter each time. It returns the total count, which represents how many 1s were present in n.
 
-## Basic Instructions
-- **Time Limit:** 3 hours  
-- Work individually. Collaboration is **not allowed**.  
-- You must complete the tasks in this repository and push your work to your fork.  
-- After finishing, create a **Pull Request** to the original repo everything stored in a folder with your name.  
-- You may use manuals, documentation, and your own notes.  
-- Internet is allowed **only for standard docs/libraries**.  
-- Do not use AI assistants (ChatGPT, Copilot, etc.) or copy code from external sources.  
+Part 2
 
----
+The function of this task takes a 32-bit number and flips its bits in reverse order. It does this by taking the last bit of n one by one and adding it to reversed_n. In the end, it gives back the number with all bits reversed.
 
-## 📁 Repository Structure
-```
+Part 3
 
-├── bitops.c        # C program for Task-1 (bit manipulation)
-├── fib.s           # RISC-V assembly program for Task-2 (Fibonacci)
-├── run\_tests.sh    # Bash test harness for Task-1
-├── Makefile        # Build & test automation
-└── README.md       # Instructions (this file)
+This function checks if a number is a power of two. It returns true only when n is greater than zero and has exactly one bit set. If those conditions are not met, it returns false.
 
-````
+Part 4
 
----
+This function sets a specific bit of a number to 1. It makes a mask by shifting 1 to the given bit position and then combines it with the number using OR. The result is the same number but with that bit turned on.
 
-## Tasks
+Part 5
 
-### **Task-1: Bit Manipulation Utility (C + Bash + Makefile + Git)**
+This function clears a specific bit of a number to 0. It creates a mask at the given bit position, inverts it, and then ANDs it with the number. The result is the same number but with that bit turned off.
 
-Implement and extend `bitops.c` to support the following operations on **32-bit unsigned integers**:
+Part 6
 
-1. Count number of set bits (`1s`)  
-2. Reverse all bits  
-3. Check if the number is a power of two  
-4. Set a specific bit (at position `k`)  
-5. Clear a specific bit (at position `k`)  
-6. Toggle a specific bit (at position `k`)  
-7. Extract a range of bits `[m:n]`  
-8. Perform **logical AND / OR** between two numbers  
+This function flips a specific bit of a number. It makes a mask at the given bit position and then XORs it with the number. The result is the same number but with that bit switched (1 to 0 or 0 to 1).
 
-⚡ **Note:** Use **optimized bitwise logic** (`&`, `|`, `^`, `~`, `<<`, `>>`) instead of brute-force loops.  
+Part 7
 
-#### Bash Test Harness (`run_tests.sh`)
-- Generate test inputs (normal + edge cases: `0`, `UINT32_MAX`, powers of 2, alternating patterns).  
-- Run the program with these inputs.  
-- Compare outputs with expected results.  
-- Print a **summary report** (Passed/Failed).  
+This function extracts a range of bits from a number. It first shifts the number right by m to align the target bits, then makes a mask for the range from m to n. Finally, it ANDs the shifted number with the mask and returns the extracted bits.
 
-#### Makefile
-- `make build` → Compile the C program  
-- `make test` → Run the Bash test harness  
-- `make clean` → Remove build artifacts  
+///////BASH part///////
 
-#### Git
-- Commit your work frequently with **meaningful commit messages**.  
-- Add documentation in this README (examples, commands, notes).  
-- Push to your fork and create a Pull Request at the end.  
+The run_test.sh file is a simple automation script that saves me from compiling and running my C program manually every time. It starts by compiling the source code with gcc and stops right away if there’s any error. After that, it defines a bunch of test cases (numbers along with bit ranges) and loops through them one by one. For each case, the script pipes the input directly into the program, runs it, and prints the output so I can see the results clearly. This way, I don’t have to type inputs over and over, the bash script takes care of compiling, running, and feeding the values in the right order automatically.
 
----
+///////Makefile work///////
 
-### **Task-2: RISC-V Assembly Challenge (Fibonacci on Spike)**
+The Makefile is set up to simplify building and testing the bit manipulation program. It defines three main targets: make build compiles the C source file (bitop.c) into the executable bitop.out with strict warnings enabled, make test first builds the program and then runs the run_test.sh script to automatically execute a series of predefined test cases, and make clean removes the compiled binary to reset the workspace.
 
-Implement `fib.s` to compute the **first n Fibonacci numbers**.  
+///////Assembly code and spike use///////
 
-Steps:
-1. Hardcode `n` in the `.data` section.  
-2. Use an **iterative algorithm** in RISC-V assembly.  
-3. Store results in memory.  
-
-Run with:  
-```bash
-spike fib
-````
-
----
-
-## Submission Checklist
-
-* [ ] Implemented `bitops.c` with all required operations
-* [ ] Completed `run_tests.sh` to generate and verify results
-* [ ] Configured `Makefile` for build, test, clean
-* [ ] Implemented `fib.s` for Fibonacci in RISC-V assembly
-* [ ] Updated `README.md` in your folder (dont change the original Readme) with:
-
-  * Algorithm explanations
-  * How to build & run
-  * Example outputs
-* [ ] Committed work regularly with meaningful messages
-* [ ] Pushed work to forked repo
-* [ ] Created a Pull Request
-
----
-
-## Example Commands
-
-### Build and Run C Program
-
-```bash
-make build
-./bitops
-```
-
-### Run Tests
-
-```bash
-make test
-```
-
-### Clean Project
-
-```bash
-make clean
-```
-
-### Run Fibonacci on Spike
-
-```bash
-riscv64-unknown-elf-gcc fib.s -o fib
-spike fib
-```
-
----
- **Tip:** Write clean, modular code. Document your steps and explain optimizations in this README.
-Good luck.
-
----
-
-```
-
----
-
-Would you like me to also **add TODO placeholders inside `bitops.c`, `run_tests.sh`, `Makefile`, and `fib.s`**, so students get a clear skeleton to start from instead of a blank file?
-```
+Now the assembly is created in which there is fib_loop function that is called till 10 iterationns and then safely exit it using the given spike assembly in the class tasks.
+log file is also generated using spike and all done...
