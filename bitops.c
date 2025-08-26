@@ -49,7 +49,7 @@ void bitops() {
     int pos;
 
     printf("Enter an integer: ");
-    scanf("%d %s", &a, op);
+    scanf("%d", &a);
 
    if (strcmp(op, "countbit") == 0) {
         printf("Number of set bits: %d\n", countBits(a));
