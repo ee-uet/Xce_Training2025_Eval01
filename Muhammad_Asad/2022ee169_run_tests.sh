@@ -29,4 +29,4 @@ fi
 echo "Summary"
 echo "Total tests performed: $total"
 echo "Tests passed: $test_passed"
-echo "Tests passed: $test_failed"
+echo "Tests failed: $test_failed"

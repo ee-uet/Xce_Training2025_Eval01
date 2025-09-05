@@ -21,14 +21,15 @@ void reverse_bits(int number){
     int j = 31;
     int lower_bit;
     unsigned int upper_bit;
-    for(int i=0; i<=16; i++){
+    for(int i=0; i<16; i++){
         lower_bit = number & (1<<i);
-        upper_bit = (unsigned int)(1>>i) & number;
-        printf("%u\n", upper_bit);
-        printf("%d\n", lower_bit);
+        upper_bit = ((unsigned int) (2147483648>>i)) & number;
+        lower_bit = lower_bit >> i;
         lower_bit = lower_bit << j;
-        upper_bit = (unsigned int)(upper_bit>>j);
-        
+        upper_bit = upper_bit << i;
+        upper_bit = ((unsigned int)(upper_bit>>j));
+        number = number & ~(1<<i);
+        number = number & ~(1<<j);
         number = number | lower_bit;
         number = number | upper_bit;
         j--;
