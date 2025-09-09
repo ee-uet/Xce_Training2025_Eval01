@@ -1,32 +1,284 @@
-# Evaluation 1
+\# Evaluation-1: Productivity Tools and C Language
 
-This project has two parts:
 
-1. **Bit manipulation utilities in C** (`bitops.c`) with an automated test harness.  
-2. ** (`fib.s`) that generates Fibonacci numbers and runs on Spike with logging.  
 
----
+Welcome to \*\*Evaluation-1\*\* 
 
-## Bit Manipulation in C
+This repository contains the starter files and structure for your first evaluation.  
 
-### Implemented Operations
-- **Count Set Bits** → clear lowest set bit trick (`num & (num-1)`).
-- **Reverse Bits (32-bit)** → check each bit, place it in mirrored position.
-- **Check Power of Two** → `num && !(num & (num-1))`.
-- **Set / Clear / Toggle Bit at position `k`** → standard bitmasking (`|`, `&~`, `^`).
-- **Extract Range of Bits** → demo mask-and-shift logic.
--
+You will demonstrate your understanding of \*\*C programming, Bash scripting, Makefile, Git workflow, and RISC-V assembly (Spike)\*\*.
+
+
 
 ---
 
-### Build & Run (Part 1)
-- **Makefile** automates:
-  - 'make build' → compiles `bitops.c` into `bitops`.
-  - `make test` → runs the test harness (`run_test.sh`).  
-  - `make clean` → removes build files.
-### Build & Run (Part 2)
-- **Use Spike** :
-  - 'riscv64-unknown-elf-as -o fib.o fib.s'
-  - 'riscv64-unknown-elf-ld -T link.ld -o fib fib.o'
-  - 'spike --log-commits fib > fib.log 2>&1'
--
+
+
+\## Basic Instructions
+
+\- \*\*Time Limit:\*\* 3 hours  
+
+\- Work individually. Collaboration is \*\*not allowed\*\*.  
+
+\- You must complete the tasks in this repository and push your work to your fork.  
+
+\- After finishing, create a \*\*Pull Request\*\* to the original repo everything stored in a folder with your name.  
+
+\- You may use manuals, documentation, and your own notes.  
+
+\- Internet is allowed \*\*only for standard docs/libraries\*\*.  
+
+\- Do not use AI assistants (ChatGPT, Copilot, etc.) or copy code from external sources.  
+
+
+
+---
+
+
+
+\## 📁 Repository Structure
+
+```
+
+├── Abdullah
+
+&nbsp;	├── bitops.c        # C program for Task-1 (bit manipulation)
+
+&nbsp;	├── fib.s           # RISC-V assembly program for Task-2 (Fibonacci)
+
+&nbsp;	├── run\\\_tests.sh    # Bash test harness for Task-1
+
+&nbsp;	├── Makefile        # Build \& test automation
+
+&nbsp;	└── README.md       # Instructions (this file)
+
+├── README.md		     # Default README.md
+
+
+
+````
+
+
+
+---
+
+
+
+\## Tasks
+
+
+
+\### \*\*Task-1: Bit Manipulation Utility (C + Bash + Makefile + Git)\*\*
+
+
+
+Implement and extend `bitops.c` to support the following operations on \*\*32-bit unsigned integers\*\*:
+
+
+
+1\. Count number of set bits (`1s`)  
+
+2\. Reverse all bits  
+
+3\. Check if the number is a power of two  
+
+4\. Set a specific bit (at position `k`)  
+
+5\. Clear a specific bit (at position `k`)  
+
+6\. Toggle a specific bit (at position `k`)  
+
+7\. Extract a range of bits `\[m:n]`  
+
+8\. Perform \*\*logical AND / OR\*\* between two numbers  
+
+
+
+⚡ \*\*Note:\*\* Use \*\*optimized bitwise logic\*\* (`\&`, `|`, `^`, `~`, `<<`, `>>`) instead of brute-force loops.  
+
+
+
+\#### Bash Test Harness (`run\_tests.sh`)
+
+\- Generate test inputs (normal + edge cases: `0`, `UINT32\_MAX`, powers of 2, alternating patterns).  
+
+\- Run the program with these inputs.  
+
+\- Compare outputs with expected results.  
+
+\- Print a \*\*summary report\*\* (Passed/Failed).  
+
+
+
+\#### Makefile
+
+\- `make build` → Compile the C program  
+
+\- `make test` → Run the Bash test harness  
+
+\- `make clean` → Remove build artifacts  
+
+
+
+\#### Git
+
+\- Commit your work frequently with \*\*meaningful commit messages\*\*.  
+
+\- Add documentation in this README (examples, commands, notes).  
+
+\- Push to your fork and create a Pull Request at the end.  
+
+
+
+---
+
+
+
+\### \*\*Task-2: RISC-V Assembly Challenge (Fibonacci on Spike)\*\*
+
+
+
+Implement `fib.s` to compute the \*\*first n Fibonacci numbers\*\*.  
+
+
+
+Steps:
+
+1\. Hardcode `n` in the `.data` section.  
+
+2\. Use an \*\*iterative algorithm\*\* in RISC-V assembly.  
+
+3\. Store results in memory.  
+
+
+
+Run with:  
+
+```bash
+
+spike fib
+
+````
+
+
+
+---
+
+
+
+\## Submission Checklist
+
+
+
+\* \[ ] Implemented `bitops.c` with all required operations
+
+\* \[ ] Completed `run\_tests.sh` to generate and verify results
+
+\* \[ ] Configured `Makefile` for build, test, clean
+
+\* \[ ] Implemented `fib.s` for Fibonacci in RISC-V assembly
+
+\* \[ ] Updated `README.md` in your folder (dont change the original Readme) with:
+
+
+
+&nbsp; \* Algorithm explanations
+
+&nbsp; \* How to build \& run
+
+&nbsp; \* Example outputs
+
+\* \[ ] Committed work regularly with meaningful messages
+
+\* \[ ] Pushed work to forked repo
+
+\* \[ ] Created a Pull Request
+
+
+
+---
+
+
+
+\## Example Commands
+
+
+
+\### Build and Run C Program
+
+
+
+```bash
+
+make build
+
+./bitops
+
+```
+
+
+
+\### Run Tests
+
+
+
+```bash
+
+make test
+
+```
+
+
+
+\### Clean Project
+
+
+
+```bash
+
+make clean
+
+```
+
+
+
+\### Run Fibonacci on Spike
+
+
+
+```bash
+
+riscv64-unknown-elf-gcc fib.s -o fib
+
+spike fib
+
+```
+
+
+
+---
+
+&nbsp;\*\*Tip:\*\* Write clean, modular code. Document your steps and explain optimizations in this README.
+
+Good luck.
+
+
+
+---
+
+
+
+```
+
+
+
+---
+
+
+
+Would you like me to also \*\*add TODO placeholders inside `bitops.c`, `run\_tests.sh`, `Makefile`, and `fib.s`\*\*, so students get a clear skeleton to start from instead of a blank file?
+
+```
+
+
+
