@@ -1,9 +1,6 @@
 #!/bin/bash
-
-# Name of your compiled C program
 EXE="./task1"
 
-# Counters
 pass=0
 fail=0
 total=0
@@ -21,19 +18,14 @@ echo "----------------------"
 
 for t in "${tests[@]}"; do
     ((total++))
-    # Split test case into individual inputs
     inputs=($t)
-    
-    # Run program with inputs fed via here-document
     output=$($EXE <<EOF
 ${inputs[@]}
 EOF
 )
-    
     echo "Test $total:"
     echo "$output"
     echo "----------------------"
 done
-
 echo "Total tests run: $total"
 

@@ -1,4 +1,4 @@
-EXE = Task1.1
+EXE = task1
 
 SRC = Task1.1.c
 
